@@ -1,0 +1,182 @@
+
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+	font-family: 'Times New Roman', Times, san-serif;
+}
+
+.nav-link{
+  color:white;
+  
+}
+
+.jumbotron{
+ padding: 20px;
+	margin-bottom: 0px;
+  background-size:cover;
+  background-repeat:no-repeat;
+ 
+}
+.mainbg{
+ 
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-image:url('../images/mainbg.jpg');
+}
+.main-head{
+	 color:#212D94;
+	 font-weight:bold;
+	 margin-left:20px;
+}
+
+
+.logsignbtnmobile{
+	margin-top:5px;
+	width:80%;
+	
+}
+.logsignbtn{
+	margin-top:10px;
+}
+
+
+   .app-stats .card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 20px 0px #ccc;
+    }
+   .app-stats .card-title {
+    margin-bottom: .75rem;
+    margin-top: 1.25rem;
+    }
+
+    .app-stats h5.card-title {
+      font-family: 'exo 2';
+      font-weight: bold;
+    }
+    .app-stats .card:hover{
+      transform: translateY(-15px);
+      transition: 0.3s;
+      background: #000;
+    }
+    .app-stats .card:hover h5.card-title{
+      color: #000;
+    }
+
+.card:hover{
+      transform: translateY(-15px);
+      transition: 0.3s;
+      background: #000;
+    }
+#searchform{
+	
+	max-width:150px;
+	
+	margin-left:10px;
+	
+}
+	
+	
+
+
+/* form css start*/
+  .formInput{
+	  border:none;
+	  border-bottom:1px solid black;
+	  background:transparent;
+	  
+	  background-color:none;
+  }
+  
+/*form css end*/	
+	.error{
+		color:red;
+		
+	}
+	
+	
+	
+	
+	
+	
+	 /*Meida Rules*/
+  @media only screen and (max-width: 1024px) {
+  .player{
+	position:relative;
+	top:-450px;
+
+ }
+ .player img{
+   height:270px;
+ }
+ .player2{
+	position:relative;
+	top:550px;
+ }
+  
+  
+  
+  }
+  @media only screen and (max-width: 768px) {
+  .player{
+	position:relative;
+	top:-500px;
+
+ }
+ .player img{
+   height:300px;
+ }
+ .player2{
+	position:relative;
+	top:550px;
+ }
+  
+  
+}
+
+@media only screen and (max-width: 555px) {
+ .player{
+	position:relative;
+	top:-500px;
+
+ }
+ .player img{
+   height:250px;
+ }
+ .player2{
+	position:relative;
+	top:550px;
+ }
+
+
+
+}
+
+
+/*User css*/
+
+.user-area{
+   margin-top: 100px;
+   
+}
+
+/*User css end*/
+
+/*
+@media only screen and (max-width: 375px) {
+
+
+
+}
+
+@media only screen and (max-width: 320px) {
+   
+   
+   
+}
+
+*/
+/*media rules end*/
