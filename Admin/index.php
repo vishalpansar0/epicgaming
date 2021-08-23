@@ -21,7 +21,7 @@ if(isset($_POST['submit']))
 	  {
 			  $password=$_POST['pass'];
 	  }
-      if($userName=="vishal sharma"&&$password=="vsp16dsp06")
+      if($userName=="vsp"&&$password=="123")
       {
           Redirect_to("adminpanel.php");
       }
@@ -60,7 +60,7 @@ if(isset($_POST['submit']))
 		<div class="navbar-collapse justify-content-md-center collapse" id="navbarresponsive">
          <ul class="navbar-nav">
 		  <li class="nav-item">
-		     <a  href="https://localhost/epicgamingmobile/" class="nav-link active"  style="color:white"><strong>HOME</strong></a> 
+		     <a  href="#" class="nav-link active"  style="color:white"><strong>HOME</strong></a> 
 		  </li>
 		  <li class="nav-item">
 		     <a  href="aboutus.php" class="nav-link"style="color:white"><strong>ABOUT US</strong></a>

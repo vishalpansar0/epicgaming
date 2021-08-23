@@ -37,7 +37,7 @@ if(confirmLogin()){
 		<div class="navbar-collapse justify-content-md-center collapse" id="navbarresponsive">
          <ul class="navbar-nav">
 		  <li class="nav-item">
-		     <a  href="https://localhost/epicgamingmobile/" class="nav-link active"  style="color:white"><strong>HOME</strong></a> 
+		     <a  href="https://localhost/epicgaming/" class="nav-link active"  style="color:white"><strong>HOME</strong></a> 
 		  </li>
 		  <li class="nav-item">
 		     <a  href="aboutus.php" class="nav-link"style="color:white"><strong>ABOUT US</strong></a>
@@ -78,13 +78,13 @@ if(confirmLogin()){
 			  <p class="lead head-desc display-4 text-center" style="font-family: 'Times New Roman', Times, serif;" >An Epic eSports Platform</p>
 			  <p class="lead text-center" style="color:#212D94; font-family: 'Times New Roman', Times, serif;" >Are you addicted to pubg mobile ? If Yes! Then what about earning money by just playing pubg mobile! Yep! You will be rewarded for WINNER WINNER CHIKEN DINNER and for each kill!</p>
 		      <p class="lead text-center" style="color:#212D94;font-family: 'Times New Roman', Times, serif;">SIGN UP NOW!</p>
-			   <a href="https://localhost/epicgamingmobile/signup.php" class="">
+			   <a href="signup.php" class="">
         	     	<button type="button" class="btn btn-danger logsignbtn col-lg-12 col-sm-12"><strong>
         	      		SIGN UP NOW</strong>
         	    	</button>
           	</a>
 			     	<br>
-				<a href="https://localhost/epicgamingmobile/login.php">
+				<a href="login.php">
         	    	<button type="button" class="btn btn-primary logsignbtn col-lg-12 col-sm-12" style="cursor:pointer;"><strong>
         	      		LOG IN</strong>
         	    	</button>
