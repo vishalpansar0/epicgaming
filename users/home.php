@@ -9,18 +9,41 @@
 ?>
 
 <?php
+   $usr_id = $_SESSION['UserId'];
+   $usr_name = $_SESSION['Name'];
    if(isset($_POST['submit'])){
-       $a = $_POST['submit'];
+    $a = $_POST['submit'];
+       $sq = "SELECT * FROM users where user_id='$usr_id'";
+       $dt = $connectingdb->query($sq);
+       $row_dt = $dt->fetch_assoc();
+       $current_wallet = $row_dt['wallet'];
+
+       $sq2 = "SELECT entry_fee FROM pubgm_matches where id='$a'";
+       $dt2 = $connectingdb->query($sq2);
+       $row_dt2 = $dt2->fetch_assoc();
+       $e_fee = $row_dt2['entry_fee'];
+
+       if($current_wallet >= $e_fee){
+       $rem_money = $current_wallet-$e_fee;
        $y="user";
        $n=$_SESSION["UserId"];
        $x=$y.$n;
        $_SESSION["SuccessMessage"]="Joined Succesfully";
-       $sql="INSERT INTO $x(match_id) VALUES(:p)";
-		  $stmt=$connectingdb->prepare($sql);
-		  $stmt->bindValue(':p',$a);
-		  $Execute=$stmt->execute();
+       $sql3="INSERT INTO $x(match_id) VALUES('$a')";
+		  $connectingdb->query($sql3);
+		  
+		  $sql4 = "UPDATE users SET wallet='$rem_money' WHERE user_id='$n'";
+      $connectingdb->query($sql4);
+
+      $match_table = 'pubgm'.$a;
+      $sql6 = "INSERT INTO $match_table(user_id,name,earnings,position) VALUES('$usr_id','$usr_name',0,0)";
+      $connectingdb->query($sql6); 
+    }
+    else{
+      $_SESSION['ErrorMessage'] = "You do not have enough money in your wallet.";
+    }
    }
-?>
+?> 
 
 
 <!DOCTYPE html>
@@ -88,13 +111,13 @@
 			  
 			  <p class="lead head-desc display-4 text-center" style="font-family: 'Times New Roman', Times, serif;" >An Epic eSports Platform</p>
 			  <p class="lead text-center" style="color:#212D94; font-family: 'Times New Roman', Times, serif;" >Are you addicted to pubg mobile ? If Yes! Then what about earning money by just playing pubg mobile! Yep! You will be rewarded for WINNER WINNER CHIKEN DINNER and for each kill! Play Now!!</p>
-		      <a href="https://localhost/epicgamingmobile/users/index.php" class="">
+		      <a href="index.php" class="">
         	     	<button type="button" class="btn btn-success logsignbtn col-lg-12 col-sm-12"><strong>
         	      		My Profile</strong>
         	    	</button>
           	</a>
 			     	<br>
-				<a href="https://localhost/epicgamingmobile/users/logout.php">
+				<a href="logout.php">
         	    	<button type="button" class="btn btn-secondary logsignbtn col-lg-12 col-sm-12" style="cursor:pointer;"><strong>
         	      		LOGOUT</strong>
         	    	</button>
@@ -128,8 +151,10 @@
                        $count = 0;
                        $sql="SELECT * FROM pubgm_matches";
                        $stmt=$connectingdb->query($sql);
-                       while($Datarows = $stmt->fetch())
-                       {
+                       while($Datarows = $stmt->fetch_assoc())
+                       {   
+                           
+
                            $id          = $Datarows["id"];
                            $mName       = $Datarows["name"];
                            $date        = $Datarows["date"];
@@ -138,6 +163,14 @@
                            $mType       = $Datarows["type"];
                            $mView       = $Datarows["view"];
                            $entryFee    = $Datarows["entry_fee"];
+                           $tname2 = 'pubgm'.$id;
+                           $sql5="SELECT * FROM $tname2";
+                           $mysqli_result = mysqli_query($connectingdb,$sql5);
+                           if(mysqli_num_rows($mysqli_result)>0){
+                           $rowcount=mysqli_num_rows($mysqli_result);}
+                           else{
+                            $rowcount = 0;
+                           }
                     ?>
                     <div class="col-sm-4">
             <div class="card" style="background-color: #fff; color: #000; box-shadow: 0 0 20px 0px #363d59;">
@@ -174,13 +207,19 @@
               
                       
                   </div>
+                  <div class="row">
+                         
+                         <h5 style="color:green;margin-left:5%;"> Slots Available:<span style = "color:red"><?php echo 100-$rowcount;      ?><span></h5>
+              
+                      
+                  </div>
                   
                   <div class="row">
                       <div class="col-9">
                        <div class="progress  mt-2">
-                       <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="90"
-                           aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                           90% Complete
+                       <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="70"
+                           aria-valuemin="0" aria-valuemax="100" style="width:<?php echo $rowcount; ?>%">
+                           <?php echo $rowcount; ?> Joined
                        </div>
                        </div>
                      </div>

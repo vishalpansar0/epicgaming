@@ -27,7 +27,7 @@
 				$_SESSION["MobileNumber"] = $isFound["mobile_number"];
 			
 			    Redirect_to("users/home.php");
-			}
+			} 
 			else{
 				$_SESSION["ErrorMessage"]="Invalid Number Or Password";
 		    Redirect_to("login.php");
@@ -113,7 +113,7 @@
 
        <button type="submit" name ="submit" class="btn btn-success mb-1">Log In</button>
       </form>
-	  <p>Have'nt Registered yet? <a href="https://localhost/epicgamingmobile/signup.php" style="font-weight:bold;color:#212D94;">Sign Up Now</a>
+	  <p>Have'nt Registered yet? <a href="signup.php" style="font-weight:bold;color:#212D94;">Sign Up Now</a>
      </div>
  </div>
 

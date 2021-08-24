@@ -1,6 +1,6 @@
-<?php require_once("../php/connection.php"); ?>
-<?php require_once("../php/functions.php");  ?>
-<?php require_once("../php/sessions.php");   ?>
+<?php require_once("php/connection.php"); ?>
+<?php require_once("php/functions.php");  ?>
+<?php require_once("php/sessions.php");   ?>
 <?php
 if(isset($_POST['submit']))
   {   

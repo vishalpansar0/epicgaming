@@ -81,9 +81,12 @@
 		  $stmt->bindValue(':pass',$pass);
 		  $stmt->bindValue(':n',$name);
 		  $Execute=$stmt->execute();
+		  $last_id = $connectingdb->lastInsertId();
 		  
 		  if($Execute){
-			  $SESSION["SuccessMessage"]="Signed Up Succussfully";
+        $User_t = 'user'.$last_id;
+			  $user_sql = "CREATE TABLE $User_t(match_id int(2))";
+			  $connectingdb->query($user_sql);
 			  Redirect_to("index.php");
 			  }
 			  else{
@@ -188,7 +191,7 @@
        <button type="submit" class="btn btn-success">Register</button>
 	   
       </form>
-	  <p>Already registered? <a href="https://localhost/epicgamingmobile/login.php" style="font-weight:bold;color:#212D94;">Log In Now</a>
+	  <p>Already registered? <a href="login.php" style="font-weight:bold;color:#212D94;">Log In Now</a>
      </div>
  </div>
 

@@ -14,11 +14,11 @@
 	   echo"Connection Established<br>";
 	  //  $sql="create database epicgaming";
    
-     $sql="create table pubgm_matches(id int(2) PRIMARY KEY  auto_increment,name char(20),date varchar(10),time varchar(10),map char(20),type char(10),view char(5),entry_fee int(10))";
+   //  $sql="create table pubgm_matches(id int(2) PRIMARY KEY  auto_increment,name char(20),date varchar(10),time varchar(10),map char(20),type char(10),view char(5),entry_fee int(10))";
 	 
    //$sql="create table users(user_id int(2) PRIMARY KEY  auto_increment,mobile_number int(2),user_game_name varchar(30),pubg_id varchar(30),password varchar(10),Name char(20))";
     
-   // $sql="ALTER TABLE users ADD Name char(20)";
+    $sql="ALTER TABLE pubgm_matches ADD room_pass varchar(20)";
 
     if($con->query($sql)===true)
 	   {

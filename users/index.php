@@ -7,7 +7,7 @@
     $abc = $_SESSION["MobileNumber"];
     $sql="SELECT * FROM users where mobile_number='$abc' LIMIT 1";
     $stmt=$connectingdb->query($sql);
-    while($Datarows = $stmt->fetch())
+    while($Datarows = $stmt->fetch_assoc())
     {        
       $id = $Datarows["user_id"];
       $GameName = $Datarows["user_game_name"];
@@ -15,6 +15,7 @@
       $PubgId = $Datarows["pubg_id"];
       $Pass = $Datarows["password"];
       $Name = $Datarows["Name"];
+      $wallet = $Datarows["wallet"];
      }
 ?>
 
@@ -46,7 +47,7 @@
 		<div class="navbar-collapse justify-content-md-center collapse" id="navbarresponsive">
          <ul class="navbar-nav">
 		  <li class="nav-item">
-		     <a  href="https://localhost/epicgamingmobile/" class="nav-link active"  style="color:white"><strong>HOME</strong></a> 
+		     <a  href="#" class="nav-link active"  style="color:white"><strong>HOME</strong></a> 
 		  </li>
 		  <li class="nav-item">
 		     <a  href="aboutus.php" class="nav-link"style="color:white"><strong>ABOUT US</strong></a>
@@ -108,7 +109,7 @@
                 <h5 class="card-title" style="font-family: 'Times New Roman', Times, serif;">Matches Played </h5><br/>
               </div>
                 <div class="col-sm-4 user_stats">
-                <h1 style="color:blue;">3700</h1>
+                <h1 style="color:blue;"><?PHP echo $wallet; ?></h1>
                 <h5 class="card-title" style="font-family: 'Times New Roman', Times, serif;">Wallet</h5><br/>
               </div>
               </div>
@@ -151,11 +152,11 @@
                        $a="user".$id;
                        $sq="SELECT * FROM $a";
                        $st=$connectingdb->query($sq);
-                       while($Datarows = $st->fetch())
+                       while($Datarows = $st->fetch_assoc())
                        {   $temp1 = $Datarows["match_id"];
                        $sql="SELECT * FROM pubgm_matches where id=$temp1";
                        $stmt=$connectingdb->query($sql);
-                       while($Datarows = $stmt->fetch())
+                       while($Datarows = $stmt->fetch_assoc())
                        {
                            $id_a        = $Datarows["id"];
                            $mName       = $Datarows["name"];
@@ -166,7 +167,7 @@
                            $mView       = $Datarows["view"];
                            $entryFee    = $Datarows["entry_fee"];
                            $roomId      = $Datarows["room_id"];
-                           $roomPass       = $Datarows["room_pass"]
+                           $roomPass       = $Datarows["room_pass"];
                     ?>
                     <tbody class="tbody">
                     <tr>
